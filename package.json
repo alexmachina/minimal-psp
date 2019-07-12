@@ -1,0 +1,10 @@
+{
+  "name": "psp",
+  "version": "1.0.0",
+  "description": "A minimal PSP",
+  "main": "index.js",
+  "repository": "git@github.com:alexmachina/vagas.git",
+  "author": "Alex Alonso <alex.xmde@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
