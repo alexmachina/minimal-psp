@@ -1,4 +1,4 @@
-const models = require('./')
+require('./')
 const sequelize = require('../connection')
 
 describe('Models', () => {
