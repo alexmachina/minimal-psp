@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const Model = Sequelize.Model
 const connection = require('../../connection')
+const paymentMethods = require('./payment_methods')
 
 class Transaction extends Model {}
 
@@ -17,8 +18,10 @@ Transaction.init({
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      isIn: [['debit_card', 'credit_card']],
-      msg: 'Must be either debit_card or credit_card'
+      isIn: {
+        args: [Object.values(paymentMethods)],
+        msg: 'Must be either debit_card or credit_card'
+      }
     }
   },
   credit_card_number: {
