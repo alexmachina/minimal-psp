@@ -17,10 +17,10 @@ describe('Transaction operations', () => {
     const transactionPayload = {
       amount: 100.0,
       description: 'Naruto Toad T-Shirt XL',
-      payment_method: debitCard,
-      credit_card_number: 4566,
-      expiration_date: new Date(2020, 1),
-      owner_name: 'Cassius Mohamad Clay',
+      paymentMethod: debitCard,
+      creditCardNumber: 4566,
+      expirationDate: new Date(2020, 1),
+      owner: 'Cassius Mohamad Clay',
       cvv: '811'
     }
 

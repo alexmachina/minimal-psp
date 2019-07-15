@@ -14,7 +14,7 @@ Transaction.init({
     type: Sequelize.STRING,
     allowNull: false
   },
-  payment_method: {
+  paymentMethod: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
@@ -24,16 +24,16 @@ Transaction.init({
       }
     }
   },
-  credit_card_number: {
+  creditCardNumber: {
     type: Sequelize.INTEGER,
     allowNull: false,
     len: [4, 4]
   },
-  expiration_date: {
+  expirationDate: {
     type: Sequelize.DATE,
     allowNull: false
   },
-  owner_name: {
+  owner: {
     type: Sequelize.STRING,
     allowNull: false
   },
