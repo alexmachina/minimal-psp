@@ -4,7 +4,6 @@ const { debitCard, creditCard } = require('../../transaction/payment_methods')
 describe('Payment Status', () => {
   it('Should return "paid" status when payment method is debit card', () => {
     const paidPaymentStatus = mapPaymentStatus(debitCard)
-    console.log(debitCard)
     expect(paidPaymentStatus).toEqual(paid)
   })
 

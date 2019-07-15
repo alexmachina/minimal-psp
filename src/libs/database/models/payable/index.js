@@ -12,15 +12,15 @@ Payable.init({
     validation: {
       isIn: [['paid', 'waiting_funds']],
       msg: 'Must be either paid or waiting_funds'
-    },
-    paymentDate: {
-      type: Sequelize.DATE,
-      allowNull: false
-    },
-    fee: {
-      type: Sequelize.DOUBLE,
-      allowNull: false
     }
+  },
+  paymentDate: {
+    type: Sequelize.DATE,
+    allowNull: false
+  },
+  fee: {
+    type: Sequelize.DOUBLE,
+    allowNull: false
   }
 }, {
   sequelize: connection,
@@ -28,4 +28,6 @@ Payable.init({
 })
 
 Payable.belongsTo(Transaction)
+Transaction.hasMany(Payable)
+
 module.exports = Payable

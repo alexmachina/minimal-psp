@@ -1,16 +1,11 @@
-const sequelize = require('../../connection')
 const { createTransaction } = require('./')
-const TransactionModel = require('../../models/transaction')
 const { debitCard } = require('../../models/transaction/payment_methods')
 const { dissoc } = require('ramda')
-
-beforeAll(() => {
-  return sequelize.authenticate().then(() =>
-    TransactionModel.sync({ force: true })
-  )
-})
+const { sync } = require('../../models')
 
 const withoutExpirationDateProp = obj => dissoc('expiration_date', obj)
+
+beforeAll(() => { return sync() })
 
 describe('Transaction operations', () => {
   it('Should be able to create a transaction', () => {
@@ -25,9 +20,11 @@ describe('Transaction operations', () => {
     }
 
     expect.assertions(1)
-    return expect(createTransaction(transactionPayload))
-      .resolves.toEqual(expect.objectContaining(
-        withoutExpirationDateProp(transactionPayload)
-      ))
+    const operation = createTransaction(transactionPayload)
+    const expected = expect.objectContaining(
+      withoutExpirationDateProp(transactionPayload)
+    )
+
+    return expect(operation).resolves.toEqual(expected)
   })
 })
