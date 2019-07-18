@@ -5,7 +5,11 @@ const Payable = require('./payable')
 const models = {
   Transaction,
   Payable,
-  sync: () => sequelize.sync({ force: true })
+  sync: () => {
+    Payable.belongsTo(Transaction)
+    Transaction.hasMany(Payable)
+    return sequelize.sync({ force: true })
+  }
 }
 
 module.exports = models
