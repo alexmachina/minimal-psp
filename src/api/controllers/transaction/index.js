@@ -1,10 +1,21 @@
 const storeController = require('../../../libs/store/controllers/transaction/')
 
-const transactionPost = (req, res) => {
+const createTransaction = (req, res) => {
   const transactionPayload = req.body
-  storeController.createTransaction(transactionPayload).then(t => {
+  return storeController.createTransaction(transactionPayload).then(t => {
     res.send(t)
   })
 }
 
-module.exports = transactionPost
+const getFunds = (req, res) => {
+  const type = req.params.type
+
+  return storeController.getFunds(type).then(funds => {
+    res.send({ [type]: funds })
+  })
+}
+
+module.exports = {
+  createTransaction,
+  getFunds
+}
