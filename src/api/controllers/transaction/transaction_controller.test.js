@@ -6,11 +6,11 @@ describe('Transaction API controller', () => {
   it('should create a new transaction', done => {
     const transactionPayload = {
       amount: 100.0,
-      description: 'Naruto Toad T-Shirt XL',
+      description: 'Superman T-Shirt L',
       paymentMethod: creditCard,
-      creditCardNumber: 4566,
-      expirationDate: new Date(2020, 1),
-      owner: 'Cassius Mohamad Clay',
+      creditCardNumber: 1966,
+      expirationDate: new Date(2021, 1),
+      owner: 'John Von Clauswitz',
       cvv: '811'
     }
 

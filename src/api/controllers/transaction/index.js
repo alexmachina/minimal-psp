@@ -7,12 +7,4 @@ const transactionPost = (req, res) => {
   })
 }
 
-const transactionQuery = (req, res) => {
-  const type = req.params.type
-  switch(type) {
-    case 'available':
-
-  }
-}
-
 module.exports = transactionPost

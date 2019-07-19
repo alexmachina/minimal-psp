@@ -8,6 +8,7 @@ const models = {
   sync: () => {
     Payable.belongsTo(Transaction)
     Transaction.hasMany(Payable)
+
     return sequelize.sync({ force: true })
   }
 }
