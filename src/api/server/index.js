@@ -12,7 +12,7 @@ app.get('/', (req, res) => res.send('Welcome to your mini-psp'))
 app.post('/transaction', createTransaction)
 app.get('/funds/:type', getFunds)
 
-initialize().then(() =>
+initialize(true).then(() =>
   app.listen(port, () => {
     console.log('Server running at port: ' + port)
   })
