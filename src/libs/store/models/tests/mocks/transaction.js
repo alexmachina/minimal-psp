@@ -5,7 +5,7 @@ const fakeTransaction = (overrides) => ({
   description: 'Naruto Toad T-Shirt XL',
   paymentMethod: debitCard,
   creditCardNumber: 4566,
-  expirationDate: new Date(2020, 1),
+  expirationDate: '02/2020',
   owner: 'Cassius Mohamad Clay',
   cvv: '811',
   ...overrides

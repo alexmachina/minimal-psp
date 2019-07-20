@@ -3,7 +3,7 @@ const Payable = require('../../models/payable')
 const mapFee = require('../../models/payable/fees')
 const { mapPaymentStatus, paymentStatus: { paid, waitingFunds } } = require('../../models/payable/payment_status')
 const { mapPaymentDate } = require('../../models/payable/payment_date')
-const { calculateBalance } = require('./functions')
+const { calculateBalance, formatExpirationDate } = require('./functions')
 
 const createPayable = (transaction) => {
   const { dataValues: { paymentMethod, createdAt, amount, id: transactionId } } = transaction
@@ -20,6 +20,7 @@ const createPayable = (transaction) => {
 }
 
 const createTransaction = data => {
+  data.expirationDate = formatExpirationDate(data.expirationDate)
   return Transaction.create(data).then(createPayable)
 }
 
