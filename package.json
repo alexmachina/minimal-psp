@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A minimal PSP",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test && jest",
     "dev": "node src/api/server/index.js",
     "lint": "npx eslint src/**/*.js"
   },
