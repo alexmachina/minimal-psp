@@ -48,6 +48,12 @@ const getWaitingFundsBalance = () => {
   }).then(calculateBalance)
 }
 
+const getTransactions = () => {
+  return Transaction.findAll({
+    raw: true
+  })
+}
+
 const getFunds = type => {
   switch (type) {
     case 'waiting_funds':
@@ -58,5 +64,5 @@ const getFunds = type => {
 }
 
 module.exports = {
-  createTransaction, getAvailableBalance, getWaitingFundsBalance, getFunds
+  createTransaction, getAvailableBalance, getWaitingFundsBalance, getFunds, getTransactions
 }

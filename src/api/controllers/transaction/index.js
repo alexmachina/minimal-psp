@@ -15,7 +15,14 @@ const getFunds = (req, res) => {
   })
 }
 
+const getTransactions = (req, res) => {
+  return storeController.getTransactions().then((transactions) => {
+    res.json(transactions)
+  })
+}
+
 module.exports = {
   createTransaction,
-  getFunds
+  getFunds,
+  getTransactions
 }

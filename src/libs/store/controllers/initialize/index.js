@@ -2,11 +2,9 @@ const sequelize = require('../../connection')
 const Payable = require('../../models/payable')
 const Transaction = require('../../models/transaction')
 
-const initialize = (force) => {
+const initialize = () => {
+  const force = process.env.NODE_ENV === 'test'
   return sequelize.authenticate()
-    .then(() =>
-      sequelize.sync({ force })
-    )
     .then(() => {
       Payable.belongsTo(Transaction)
       return Payable.sync({ force })
@@ -15,9 +13,9 @@ const initialize = (force) => {
       Transaction.hasMany(Payable)
       return Transaction.sync({ force })
     })
-    .then(() =>
-      sequelize.sync()
-    )
+    .then(() => {
+      return sequelize.sync({ force })
+    })
 }
 
 module.exports = {
